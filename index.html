@@ -20,6 +20,7 @@
         <span></span><br><br><br>
         <span></span><br>
         <span></span><br>
+        <span></span><br>
         <span></span>
     </div>
     <script>
@@ -45,9 +46,11 @@
             console.log("DeviceOrientationEvent is not supported");
         }
         function orientation(event) {
+        
             spans[3].innerHTML = "eje x:" + event.alpha;
-            spans[4].innerHTML = "eje y:" + event.alpha;
+            spans[4].innerHTML = "eje y:" + event.beta;
             spans[5].innerHTML = "eje z:" + event.gamma;
+            spans[6].innerHTML = "eje Absolute:" + event.absolute;
             console.log("Magnetometer: "
                 + event.alpha + ", "
                 + event.alpha + ", "

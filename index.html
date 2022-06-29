@@ -7,56 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axis</title>
     <style>
-        div{
+        div {}
 
-        }
-        #uno{
-
-        }
+        #uno {}
     </style>
 </head>
 
 <body>
     <div>
-        <span id="uno">
-
-        </span><br>
-        <span id="dos">
-
-        </span><br>
-        <span id="tres">
-
-        </span>
+        <span></span><br>
+        <span></span><br>
+        <span></span><br><br><br>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
     <script>
-        const spans= document.getElementsByTagName("span");
+        const spans = document.getElementsByTagName("span");
         if (window.DeviceMotionEvent) {
             window.addEventListener("devicemotion", motion, false);
         } else {
             console.log("DeviceMotionEvent is not supported");
         }
         function motion(event) {
-                spans[0].innerHTML= "eje x:" + event.accelerationIncludingGravity.x;
-                spans[1].innerHTML = "eje y:" + event.accelerationIncludingGravity.y;
-                spans[2].innerHTML = "eje z:" + event.accelerationIncludingGravity.z;
-                console.log("Accelerometer: "
-                    + event.accelerationIncludingGravity.x + ", "
-                    + event.accelerationIncludingGravity.y + ", "
-                    + event.accelerationIncludingGravity.z
-                );
-            }
+            spans[0].innerHTML = "eje x:" + event.accelerationIncludingGravity.x;
+            spans[1].innerHTML = "eje y:" + event.accelerationIncludingGravity.y;
+            spans[2].innerHTML = "eje z:" + event.accelerationIncludingGravity.z;
+            console.log("Accelerometer: "
+                + event.accelerationIncludingGravity.x + ", "
+                + event.accelerationIncludingGravity.y + ", "
+                + event.accelerationIncludingGravity.z
+            );
+        }
         if (window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", orientation, false);
-            } else {
-                console.log("DeviceOrientationEvent is not supported");
-            }
-            function orientation(event) {
-                    console.log("Magnetometer: "
-                        + event.alpha + ", "
-                        + event.beta + ", "
-                        + event.gamma
-                    );
-                }
+            window.addEventListener("deviceorientation", orientation, false);
+        } else {
+            console.log("DeviceOrientationEvent is not supported");
+        }
+        function orientation(event) {
+            spans[3].innerHTML = "eje x:" + event.alpha;
+            spans[4].innerHTML = "eje y:" + event.alpha;
+            spans[5].innerHTML = "eje z:" + event.gamma;
+            console.log("Magnetometer: "
+                + event.alpha + ", "
+                + event.alpha + ", "
+                + event.gamma
+            );
+        }
     </script>
 </body>
 

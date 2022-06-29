@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axis</title>
+    <style>
+        div{
+
+        }
+        #uno{
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="uno">
+
+        </span><br>
+        <span id="dos">
+
+        </span><br>
+        <span id="tres">
+
+        </span>
+    </div>
+    <script>
+        const spans= document.getElementsByTagName("span");
+        if (window.DeviceMotionEvent) {
+            window.addEventListener("devicemotion", motion, false);
+        } else {
+            console.log("DeviceMotionEvent is not supported");
+        }
+        function motion(event) {
+                spans[0].innerHTML= "eje x:" + event.accelerationIncludingGravity.x;
+                spans[1].innerHTML = "eje y:" + event.accelerationIncludingGravity.y;
+                spans[2].innerHTML = "eje z:" + event.accelerationIncludingGravity.z;
+                console.log("Accelerometer: "
+                    + event.accelerationIncludingGravity.x + ", "
+                    + event.accelerationIncludingGravity.y + ", "
+                    + event.accelerationIncludingGravity.z
+                );
+            }
+        if (window.DeviceOrientationEvent) {
+                window.addEventListener("deviceorientation", orientation, false);
+            } else {
+                console.log("DeviceOrientationEvent is not supported");
+            }
+            function orientation(event) {
+                    console.log("Magnetometer: "
+                        + event.alpha + ", "
+                        + event.beta + ", "
+                        + event.gamma
+                    );
+                }
+    </script>
+</body>
+
+</html>
